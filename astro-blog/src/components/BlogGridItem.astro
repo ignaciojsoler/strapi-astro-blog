@@ -2,9 +2,10 @@
 const url = import.meta.env.STRAPI_URL;
 const { post } = Astro.props;
 const { slug, featuredImage, title, excerpt, author } = post.attributes;
+const {id} = post
 
 const authorImage = author.data.attributes.image.data.attributes.url || null;
-console.log(author.data);
+console.log(post);
 const postImage = featuredImage.data[0].attributes.url || null;
 
 ---
@@ -12,7 +13,7 @@ const postImage = featuredImage.data[0].attributes.url || null;
 <div
   class="rounded-md overflow-hidden shadow-sm p-4 transition-transform h-auto"
 >
-  <a href={`/post/${slug}`}>
+  <a href={`/post/${id}`}>
     <div class="rounded-md h-48 w-full overflow-hidden">
       <img
         class="object-cover w-full h-full"
@@ -40,7 +41,7 @@ const postImage = featuredImage.data[0].attributes.url || null;
       </div>
       <div class="inline-flex rounded-md">
         <a
-          href={`/post/${slug}`}
+          href={`/post/${id}`}
           class="inline-flex items-center justify-center px-5 py-2 border border-transparent text-base font-medium rounded-md text-white bg-yellow-500 hover:bg-yellow-400"
         >
           Read article
