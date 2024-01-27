@@ -1,11 +1,10 @@
 ---
 const url = import.meta.env.STRAPI_URL;
 const { post } = Astro.props;
-const { slug, featuredImage, title, excerpt, author } = post.attributes;
+const { featuredImage, title, excerpt, author } = post.attributes;
 const {id} = post
 
 const authorImage = author.data.attributes.image.data.attributes.url || null;
-console.log(post);
 const postImage = featuredImage.data[0].attributes.url || null;
 
 ---
